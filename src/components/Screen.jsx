@@ -9,10 +9,10 @@ const Screen = ({screenNumbers, screenNumbers2, result}) => {
       return screenNumbers2
     } else return screenNumbers
   }
-
+// 
   return (
-    <div className="screen">
-        <p>
+    <div dir="rtl" className="screen">
+        <p >
             {renderScreen()}
         </p>
     </div>

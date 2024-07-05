@@ -86,7 +86,7 @@ body {
  }
 
  .screen {
-   width: calc(100% - 30px);
+   width: 220px;
    height: 40px;
    // background-color:  rgb(254, 255, 238);
    background-image: linear-gradient(to right, rgb(254, 255, 238) 70%, rgb(236, 244, 197) 50%);
@@ -98,4 +98,6 @@ body {
    letter-spacing: 2px;
    font-weight: bold;
    border-radius: 3px;
+   overflow: auto;
+   scrollbar-width: none;
  }

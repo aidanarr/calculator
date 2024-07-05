@@ -14,6 +14,15 @@ function App() {
     if (operator === "add") {
       const operation = parseFloat(screenNumbers) + parseFloat(screenNumbers2)
       setResult(operation)
+    } else if (operator === "sub") {
+      const operation = parseFloat(screenNumbers) - parseFloat(screenNumbers2)
+      setResult(operation)
+    } else if (operator === "mult") {
+      const operation = parseFloat(screenNumbers) * parseFloat(screenNumbers2)
+      setResult(operation)
+    } else if (operator === "div") {
+      const operation = parseFloat(screenNumbers) / parseFloat(screenNumbers2)
+      setResult(operation)
     }
     
   }
@@ -21,7 +30,7 @@ function App() {
   return (
     <>
       <Screen result={result} screenNumbers2={screenNumbers2} screenNumbers={screenNumbers} />
-      <ButtonPanel doMath={doMath} operator={operator} setOperator={setOperator} setScreenNumbers={setScreenNumbers} screenNumbers={screenNumbers}  setScreenNumbers2={setScreenNumbers2} screenNumbers2={screenNumbers2} />
+      <ButtonPanel doMath={doMath} operator={operator} setOperator={setOperator} setScreenNumbers={setScreenNumbers} screenNumbers={screenNumbers}  setScreenNumbers2={setScreenNumbers2} screenNumbers2={screenNumbers2} setResult={setResult} />
     </>
   )
 }

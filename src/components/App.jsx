@@ -29,8 +29,10 @@ function App() {
 
   return (
     <>
-      <Screen result={result} screenNumbers2={screenNumbers2} screenNumbers={screenNumbers} />
-      <ButtonPanel doMath={doMath} operator={operator} setOperator={setOperator} setScreenNumbers={setScreenNumbers} screenNumbers={screenNumbers}  setScreenNumbers2={setScreenNumbers2} screenNumbers2={screenNumbers2} setResult={setResult} />
+      <div className="calc-box">
+        <Screen result={result} screenNumbers2={screenNumbers2} screenNumbers={screenNumbers} />
+        <ButtonPanel doMath={doMath} operator={operator} setOperator={setOperator} setScreenNumbers={setScreenNumbers} screenNumbers={screenNumbers}  setScreenNumbers2={setScreenNumbers2} screenNumbers2={screenNumbers2} setResult={setResult} />
+      </div>
     </>
   )
 }

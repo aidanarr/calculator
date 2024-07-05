@@ -18,71 +18,57 @@ const Button = ({value, screenNumbers, setScreenNumbers, datatype, operator, set
     } else return value
   }
 
+  const resetScreen = () => {
+    setScreenNumbers("");
+    setScreenNumbers2("");
+    setOperator("");
+    setResult("")
+  }
+
+  const deleteNumber = (string, func) => {
+    const screenNumbersCopy = string;
+    const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
+    func(numbers)
+  }
+
   const handleClick = (ev) => {
     ev.preventDefault();
-    const numbers = screenNumbers + value;
-    
-    // if (operator !== "" && value !== "equals" && value !== "del" & value !== "C") {
-    //   setScreenNumbers2(screenNumbers2 + value)
-    // } else if (operator === "" && datatype === "number") {
-    //   setScreenNumbers(numbers);
-    // } else if (value === "equals") {
-    //   doMath();
-    // } else if (value === "C") {
-    //   setScreenNumbers("")
-    //   setScreenNumbers2("")
-    //   setOperator("")
-    //   setResult("");
-    // } else if (value === "del") {
-    //   if (screenNumbers2) {
-    //     const screenNumbersCopy = screenNumbers2;
-    //     const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
-    //     setScreenNumbers2(numbers)
-    //   } else {
-    //     const screenNumbersCopy = screenNumbers;
-    //     const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
-    //     setScreenNumbers(numbers)
-    //   }
-    // } else {
-    //   setOperator(value);
-    // }
 
     if (value === "equals") {
       doMath();
     } else if (value === "C") {
-      setScreenNumbers("")
-      setScreenNumbers2("")
-      setOperator("")
-      setResult("");
+      resetScreen()
     } else if (value === "del") {
+
       if (screenNumbers2) {
-        const screenNumbersCopy = screenNumbers2;
-        const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
-        setScreenNumbers2(numbers)
+        deleteNumber(screenNumbers2, setScreenNumbers2)
       } else if (screenNumbers) {
-        const screenNumbersCopy = screenNumbers;
-        const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
-        setScreenNumbers(numbers)
+        deleteNumber(screenNumbers, setScreenNumbers)
       } else false
+
     } else if (operator !== "" && datatype === "number") {
+
       if (value === "." && !screenNumbers2) {
         return false
       } else if (value === "." && screenNumbers2.includes(".")) {
         return false
-      } else setScreenNumbers2(screenNumbers2 + value)        
+      } else setScreenNumbers2(screenNumbers2 + value) 
+
     } else if (operator === "" && datatype === "number") {
+
       if (value === "." && !screenNumbers) {
         return false
       } else if (value === "." && screenNumbers.includes(".")) {
         return false
       } else setScreenNumbers(screenNumbers + value)
+
     } else{
       setOperator(value);
     }
   }
 
   return (
-    <button onClick={handleClick} className={`btn btn-box__${value}`}>
+    <button onClick={handleClick} className={`btn btn-box__${value} ${datatype}`}>
       <p>
         {renderValue()}
       </p>

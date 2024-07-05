@@ -12,20 +12,40 @@ body {
    justify-content: center;
  }
 
+ .calc-box {
+   background-image: linear-gradient(rgb(221, 201, 236), rgb(192, 172, 222));
+   padding: 30px;
+   padding-left: 25px;
+   padding-right: 25px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
  .btn {
-   background-color: palevioletred;
+   background-color: rgb(254, 255, 238);
    border: none;
    width: 100%;
    height: 100%;
    border-radius: 10px;
+   color: rgb(117, 88, 137);
    cursor: pointer;
+   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.184);
    &:active {
-      width: 96%;
-      height: 96%;
+      width: 95%;
+      height: 95%;
    }
  }
 
+ .operator {
+   color: rgb(117, 88, 137);
+   background-color: rgb(220, 230, 177);
+   font-weight: bold;
+}
+
  .btn-box {
+   padding: 20px;
    width: 250px;
    height: 350px;
    display: grid;
@@ -53,12 +73,29 @@ body {
       grid-row: 4 / 6;
    }
 
+   &__C {
+      background-color: rgb(117, 88, 137);
+      color: rgb(220, 230, 177);
+   }
+
+   &__del {
+      background-color: rgb(117, 88, 137);
+      color: rgb(220, 230, 177);
+   }
+
  }
 
  .screen {
-   width: 100%;
-   border: 1px solid black;
-   margin-bottom: 10px;
+   width: calc(100% - 30px);
+   height: 40px;
+   // background-color:  rgb(254, 255, 238);
+   background-image: linear-gradient(to right, rgb(254, 255, 238) 70%, rgb(236, 244, 197) 50%);
+   background-size: 4px 100%;
    text-align: right;
    padding: 10px;
+   font-family: "Orbitron", sans-serif;
+   color: rgb(117, 88, 137);
+   letter-spacing: 2px;
+   font-weight: bold;
+   border-radius: 3px;
  }

@@ -59,16 +59,24 @@ const Button = ({value, screenNumbers, setScreenNumbers, datatype, operator, set
         const screenNumbersCopy = screenNumbers2;
         const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
         setScreenNumbers2(numbers)
-      } else {
+      } else if (screenNumbers) {
         const screenNumbersCopy = screenNumbers;
         const numbers = screenNumbersCopy.slice(0, screenNumbersCopy.length - 1);
         setScreenNumbers(numbers)
-      }
-    } else if (operator !== "") {
-      setScreenNumbers2(screenNumbers2 + value)
+      } else false
+    } else if (operator !== "" && datatype === "number") {
+      if (value === "." && !screenNumbers2) {
+        return false
+      } else if (value === "." && screenNumbers2.includes(".")) {
+        return false
+      } else setScreenNumbers2(screenNumbers2 + value)        
     } else if (operator === "" && datatype === "number") {
-      setScreenNumbers(numbers);
-    } else {
+      if (value === "." && !screenNumbers) {
+        return false
+      } else if (value === "." && screenNumbers.includes(".")) {
+        return false
+      } else setScreenNumbers(screenNumbers + value)
+    } else{
       setOperator(value);
     }
   }

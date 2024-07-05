@@ -13,9 +13,16 @@ body {
  }
 
  .btn {
-   border: 1px solid black;
+   background-color: palevioletred;
+   border: none;
+   width: 100%;
    height: 100%;
+   border-radius: 10px;
    cursor: pointer;
+   &:active {
+      width: 96%;
+      height: 96%;
+   }
  }
 
  .btn-box {
@@ -24,6 +31,7 @@ body {
    display: grid;
    gap: 10px;
    align-items: center;
+   justify-items: center;
    grid-template-columns: 1fr 1fr 1fr 1fr;
    grid-auto-flow: dense;
 
